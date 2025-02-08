@@ -1,6 +1,8 @@
 import sqlite3
 import os
 
+# 데이터 베이스 연결하고, 데이터 베이스에 들어가있는 데이터를 콘솔에서 확인할 수 있는 함수 
+
 # SQLite 데이터베이스 연결 함수
 def connect_to_db():
     # 데이터베이스 경로 설정
@@ -18,12 +20,12 @@ def fetch_and_print_problems():
     rows = cursor.fetchall()  # 모든 데이터 가져오기
 
     # 테이블 헤더 출력
-    print("ID | School    | Year |Grade|Semes| Term  |Unit | Theme   |QNumInTest| QuestionParagraph                  |Answer| Difficulty | Image Path")
+    print("ID | School    | Year |Grade|Semes| Term  |Unit | Theme   |QNumInTest| QuestionParagraph   |Answer| Difficulty | Image Path")
     print("-" * 120)
 
     # 각 행 출력
     for row in rows:
-        print(f"{row[0]} | {row[1]:<3} | {row[2]:<3} | {row[3]:<3} | {row[4]:<3} | {row[5]:<3} | {row[6]:<3} | {row[7]:<4} | {row[8]:<8} | {row[9]:<3} | {row[10]} | {row[11]} | {row[12]}")
+        print(f"{row[0]} | {row[1]:<3} | {row[2]:<3} | {row[3]:<3} | {row[4]:<3} | {row[5]:<3} | {row[6]:<3} | {row[7]:<4} | {row[8]:<8} | {row[9][0:12]:<3} | {row[10]}    | {row[11]}         | {row[12]}")
 
     # 연결 종료
     conn.close()
