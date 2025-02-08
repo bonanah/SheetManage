@@ -10,3 +10,7 @@ db brower for sqlite 설치해봐야할 것 같고
 insertCSV 할 때 중복되는 거는 들어가지 않도록 해야함 ! 
 + 한글이 깨짐 -> 근데 db 파일 직접 열어서 편집하면 한글로 잘 나옴 ...
 + synology nas web station 이용 웹 서버 호스팅 https://my.bestie.co.kr/%EC%8B%9C%EB%86%80%EB%A1%9C%EC%A7%80-%EC%9B%B9%EC%84%9C%EB%B2%84/
+
+
+# 2025-02-08 (sat)
+- main.py / exam_generator.py / problem_selector.py / db_manager.py 새로 추가했음 
