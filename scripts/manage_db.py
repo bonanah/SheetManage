@@ -19,12 +19,14 @@ def create_table():
         CREATE TABLE IF NOT EXISTS problems (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             school TEXT,
+            year INTEGER,
             grade TEXT,
             semester TEXT,
             term TEXT,
             unit TEXT,
             theme TEXT,
-            question TEXT,
+            qNumInTest INTEGER,
+            questionParagraph TEXT,
             answer TEXT,
             difficulty TEXT,
             image_path TEXT
@@ -33,6 +35,49 @@ def create_table():
 
     conn.commit()
     conn.close()
+
+# 필터 기준으로 문제를 가져오는 함수
+def get_problems_by_filter(chapter=1, difficulty=1):
+    conn = connect_to_db()
+    cursor = conn.cursor()
+
+    # SQL 쿼리 동적 생성
+    query = "SELECT * FROM problems WHERE 1=1"
+    params = []
+
+    if chapter:
+        query += " AND unit = ?"
+        params.append(chapter)
+    
+    if difficulty:
+        query += " AND difficulty = ?"
+        params.append(difficulty)
+
+    cursor.execute(query, params)
+    rows = cursor.fetchall()
+
+    conn.close()
+
+    # 결과를 딕셔너리 형태로 반환
+    problems = []
+    for row in rows:
+        problems.append({
+            "id": row[0],
+            "school": row[1],
+            "year": row[2],
+            "grade": row[3],
+            "semester": row[4],
+            "term": row[5],
+            "unit": row[6],         # 단원명
+            "theme": row[7],
+            "qNumInTest": row[8],
+            "problem_text": row[9], # 문제 내용
+            "answer": row[10],
+            "difficulty": row[11],
+            "image_path": row[12]
+        })
+
+    return problems
 
 if __name__ == "__main__":
     create_table()

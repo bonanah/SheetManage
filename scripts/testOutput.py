@@ -18,12 +18,12 @@ def fetch_and_print_problems():
     rows = cursor.fetchall()  # 모든 데이터 가져오기
 
     # 테이블 헤더 출력
-    print("ID | School    | Grade   | Semester | Term    | Unit     | Theme      | Question      | Answer       | Difficulty | Image Path")
+    print("ID | School    | Year |Grade|Semes| Term  |Unit | Theme   |QNumInTest| QuestionParagraph                  |Answer| Difficulty | Image Path")
     print("-" * 120)
 
     # 각 행 출력
     for row in rows:
-        print(f"{row[0]} | {row[1]:<10} | {row[2]:<8} | {row[3]:<9} | {row[4]:<8} | {row[5]:<10} | {row[6]:<10} | {row[7]:<15} | {row[8]:<12} | {row[9]:<10} | {row[10]}")
+        print(f"{row[0]} | {row[1]:<3} | {row[2]:<3} | {row[3]:<3} | {row[4]:<3} | {row[5]:<3} | {row[6]:<3} | {row[7]:<4} | {row[8]:<8} | {row[9]:<3} | {row[10]} | {row[11]} | {row[12]}")
 
     # 연결 종료
     conn.close()
