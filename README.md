@@ -1,6 +1,6 @@
 # SheetManage
 
-## 프로그램 시작할 때 (제일 바깥 폴더더에서 복붙하기)
+## 프로그램 시작할 때 (제일 바깥 폴더에서 복붙하기)
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\venv\Scripts\activate
 pip install python-docx  --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host=files.pythonhosted.org
@@ -14,3 +14,7 @@ insertCSV 할 때 중복되는 거는 들어가지 않도록 해야함 !
 
 # 2025-02-08 (sat)
 - main.py / exam_generator.py / problem_selector.py / db_manager.py 새로 추가했음 
+
+# 2025-02-15 (sat)
+
+# 2025-02-22 (sat)
